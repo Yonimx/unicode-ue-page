@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UniCode UE: Block-based software puzzles that teach programming</title>
+  <meta name="description" content="UniCode is a free pixel-art puzzle game where you guide a robot with Python-inspired code blocks. 93 levels across 10 modules, from printing to the terminal to reading files, with an AI assistant that gives hints, not answers. A University of the East thesis project.">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+  <!-- Link previews (Messenger, Facebook, Discord...). The image needs the
+       site's full address: change it if the site lives somewhere else. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UniCode UE">
+  <meta property="og:title" content="UniCode UE: Block-based software puzzles that teach programming">
+  <meta property="og:description" content="Guide a robot through campus puzzles by snapping together Python-inspired code blocks. 93 levels, 10 modules, AI hints.">
+  <meta property="og:url" content="https://unicode-ue.vercel.app/">
+  <meta property="og:image" content="https://unicode-ue.vercel.app/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="assets/fonts/kenney-pixel.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/img/campus.webp" as="image" media="(min-width: 700px)">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" data-nav>
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top" aria-label="UniCode, back to top">
+        <img src="assets/img/logo.png" alt="UniCode" width="217" height="41">
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav id="nav-menu" class="nav__menu" aria-label="Main">
+        <a href="#features">Features</a>
+        <a href="#concepts">Concepts</a>
+        <a href="#how-to-play">How to play</a>
+        <a href="#ai-assistant">AI assistant</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn--primary btn--small" data-link="play" href="https://unicode-ue.itch.io/unicode" target="_blank" rel="noopener">Play</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ First screen ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__art" aria-hidden="true" data-parallax>
+        <div class="hero__art-drift"></div>
+      </div>
+      <div class="hero__veil" aria-hidden="true"></div>
+
+      <div class="hero__life" aria-hidden="true">
+        <svg class="cloud cloud--1" viewBox="0 0 24 8" shape-rendering="crispEdges"><path d="M6 0h6v1h2v1h3v1h3v1h2v2h2v2H0V6h1V4h2V2h3z"/></svg>
+        <svg class="cloud cloud--2" viewBox="0 0 24 8" shape-rendering="crispEdges"><path d="M8 0h5v1h3v2h4v1h2v2h2v2H0V6h2V4h3V2h3z"/></svg>
+        <svg class="cloud cloud--3" viewBox="0 0 24 8" shape-rendering="crispEdges"><path d="M6 0h6v1h2v1h3v1h3v1h2v2h2v2H0V6h1V4h2V2h3z"/></svg>
+        <span class="sprite sprite--hover robot-spot robot-spot--a"></span>
+        <span class="sprite sprite--hover robot-spot robot-spot--b"></span>
+        <span class="sprite sprite--hover robot-spot robot-spot--c"></span>
+        <span class="sprite sprite--hover robot-spot robot-spot--d"></span>
+        <div class="glider"><span class="sprite sprite--glide"></span></div>
+        <div class="sparkles" data-sparkles></div>
+      </div>
+
+      <div class="hero__content">
+        <p class="tag">A UE thesis project <span class="pip" aria-hidden="true"></span> Inspired by Python</p>
+        <h1 id="hero-title" class="hero__title">
+          <img class="hero__logo" src="assets/img/logo.png" alt="UniCode" width="217" height="41">
+          <span class="hero__headline">Block-based software puzzles that teach core programming concepts and abstractions.</span>
+        </h1>
+        <p class="hero__lead">Guide a robot through campus puzzles by snapping together Python-inspired code blocks.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--large" data-link="play" href="https://unicode-ue.itch.io/unicode" target="_blank" rel="noopener">
+            <svg class="btn__icon" viewBox="0 0 6 10" aria-hidden="true" shape-rendering="crispEdges"><path d="M0 0h1v10H0zM1 1h1v8H1zM2 2h1v6H2zM3 3h1v4H3zM4 4h1v2H4z"/></svg>
+            Play in browser
+          </a>
+          <a class="btn btn--outline btn--large" data-link="download" href="https://unicode-ue.itch.io/unicode" target="_blank" rel="noopener">Download for Windows</a>
+        </div>
+        <ul class="hero__facts" aria-label="At a glance">
+          <li>93 levels</li>
+          <li>10 modules</li>
+          <li>AI hints</li>
+          <li>Free to play</li>
+        </ul>
+      </div>
+
+      <a class="hero__more" href="#gameplay">
+        See it in action
+        <svg viewBox="0 0 10 6" aria-hidden="true" shape-rendering="crispEdges"><path d="M0 0h2v1h1v1h1v1h2V2h1V1h1V0h2v2H9v1H8v1H7v1H6v1H4V5H3V4H2V3H1V2H0z"/></svg>
+      </a>
+    </section>
+
+    <!-- ============ See it in action ============ -->
+    <section class="section section--grid" id="gameplay" aria-labelledby="gameplay-title">
+      <div class="container">
+        <header class="section__head" data-reveal>
+          <p class="eyebrow">See it in action</p>
+          <h2 id="gameplay-title" class="section__title">From blocks to a working robot</h2>
+          <p class="section__lead">A real run, start to finish: pick blocks, snap them together, press play, earn your stars.</p>
+        </header>
+
+        <figure class="player" data-player data-reveal>
+          <div class="player__frame">
+            <!-- GAMEPLAY CLIP: save the recording as media/gameplay.mp4 and it
+                 plays here on its own. Until then, the still image shows. -->
+            <video class="player__video" muted loop playsinline preload="none" poster="assets/shots/poster-gameplay.webp" data-video>
+              <source src="media/gameplay.mp4" type="video/mp4">
+            </video>
+            <div class="player__controls" data-controls hidden>
+              <button class="player__toggle" type="button" data-toggle aria-label="Pause the clip">
+                <svg class="icon-pause" viewBox="0 0 8 10" aria-hidden="true" shape-rendering="crispEdges"><path d="M0 0h3v10H0zM5 0h3v10H5z"/></svg>
+                <svg class="icon-play" viewBox="0 0 6 10" aria-hidden="true" shape-rendering="crispEdges"><path d="M0 0h1v10H0zM1 1h1v8H1zM2 2h1v6H2zM3 3h1v4H3zM4 4h1v2H4z"/></svg>
+              </button>
+              <div class="player__bar" aria-hidden="true"><span data-progress></span></div>
+            </div>
+          </div>
+          <figcaption class="sr-only">Gameplay: blocks are dragged under Begin, the program runs, the robot reaches the flag, and the level is solved with three stars.</figcaption>
+        </figure>
+
+        <!-- Each step lights up while the clip is on it. data-start is the
+             second that step starts in the clip: adjust after recording. -->
+        <ol class="steps-strip" aria-label="What the clip shows">
+          <li><button type="button" data-step data-start="0" disabled><span>1</span> Pick blocks</button></li>
+          <li><button type="button" data-step data-start="6" disabled><span>2</span> Snap them together</button></li>
+          <li><button type="button" data-step data-start="13" disabled><span>3</span> Press play</button></li>
+          <li><button type="button" data-step data-start="20" disabled><span>4</span> Earn stars</button></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ How to play ============ -->
+    <section class="section section--alt" id="how-to-play" aria-labelledby="how-title">
+      <div class="container how">
+        <header class="section__head section__head--left" data-reveal>
+          <p class="eyebrow">How to play</p>
+          <h2 id="how-title" class="section__title">Every level, four steps</h2>
+          <p class="section__lead">New blocks come with a short guided tutorial, so you're never thrown in cold.</p>
+        </header>
+        <ol class="how__steps">
+          <li class="how__step" data-reveal>
+            <span class="how__num" aria-hidden="true">1</span>
+            <div>
+              <h3>Read the mission</h3>
+              <p>Each level says what the robot has to do, like reach the green flag or show a line on the terminal, and how many blocks earn three stars.</p>
+            </div>
+          </li>
+          <li class="how__step" data-reveal>
+            <span class="how__num" aria-hidden="true">2</span>
+            <div>
+              <h3>Build with blocks</h3>
+              <p>Drag blocks from the Toolbox and attach them under Begin. Blocks snap into place, so there's no syntax to get wrong.</p>
+            </div>
+          </li>
+          <li class="how__step" data-reveal>
+            <span class="how__num" aria-hidden="true">3</span>
+            <div>
+              <h3>Press play</h3>
+              <p>The robot carries out your program one block at a time, in every room of the level. The block that's running lights up.</p>
+            </div>
+          </li>
+          <li class="how__step" data-reveal>
+            <span class="how__num" aria-hidden="true">4</span>
+            <div>
+              <h3>Fix it or win</h3>
+              <p>If something goes wrong, the game tells you which block and why. Solve every room to earn up to three stars.</p>
+            </div>
+          </li>
+        </ol>
+        <figure class="shot how__shot" data-reveal>
+          <img src="assets/shots/shot-tutorial.webp" alt="The first level of the Tutorial module: a welcome card in the middle of the workspace, and the robot's room with a green flag on the right." width="1100" height="508" loading="lazy">
+          <figcaption>The Tutorial module walks you through every button, one step at a time.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ Features ============ -->
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <header class="section__head" data-reveal>
+          <p class="eyebrow">Features</p>
+          <h2 id="features-title" class="section__title">Built for first-time programmers</h2>
+          <p class="section__lead">Everything in UniCode is there to make the logic of a program something you can see.</p>
+        </header>
+        <div class="features">
+          <article class="feature" data-reveal>
+            <img class="feature__shot" src="assets/shots/shot-place-block.webp" alt="A guided tutorial card showing how to drag the Step Forward block onto the Begin block." width="900" height="500" loading="lazy">
+            <div class="feature__body">
+              <h3>Python-inspired blocks</h3>
+              <p>Blocks use Python's own words: <code>print</code>, <code>input</code>, <code>if</code>, <code>elif</code>, <code>else</code>, <code>while</code>, <code>for</code>, <code>break</code> and <code>continue</code>. What you learn carries over to typed code.</p>
+            </div>
+          </article>
+          <article class="feature" data-reveal>
+            <img class="feature__shot" src="assets/shots/shot-watch-robot.webp" alt="Two nested for loops on the workspace while the robot walks around the desks of a classroom." width="960" height="720" loading="lazy">
+            <div class="feature__body">
+              <h3>Watch your program run</h3>
+              <p>The running block lights up, the robot moves, and the Variables tab shows every value as it changes.</p>
+            </div>
+          </article>
+          <article class="feature" data-reveal>
+            <img class="feature__shot" src="assets/shots/shot-many-rooms.webp" alt="An if, elif and else program next to three rooms, where each user types a different item." width="1000" height="917" loading="lazy">
+            <div class="feature__body">
+              <h3>One program, many rooms</h3>
+              <p>Many levels have two or three rooms with different layouts or inputs. One program has to solve them all, so you write general rules instead of one-off moves.</p>
+            </div>
+          </article>
+          <article class="feature" data-reveal>
+            <img class="feature__shot" src="assets/shots/shot-python-tip.webp" alt="A level's mission panel with the tip: In Python, prices[&quot;pen&quot;] is the value of the key &quot;pen&quot;." width="548" height="520" loading="lazy">
+            <div class="feature__body">
+              <h3>Python on the side</h3>
+              <p>Many levels show the matching Python next to the mission, like <code>prices["pen"]</code>, so the jump to typed code stays small.</p>
+            </div>
+          </article>
+          <article class="feature" data-reveal>
+            <img class="feature__shot" src="assets/shots/shot-error.webp" alt="A print block marked in red with the message: Variable 'Hello' doesn't exist." width="1100" height="609" loading="lazy">
+            <div class="feature__body">
+              <h3>Learn from mistakes</h3>
+              <p>When a block can't run, the game marks it and says why, like <q>Variable 'Hello' doesn't exist.</q></p>
+            </div>
+          </article>
+          <article class="feature" data-reveal>
+            <img class="feature__shot" src="assets/shots/shot-stars.webp" alt="The Level complete card with three stars and a short comment from the AI about the player's program." width="600" height="575" loading="lazy">
+            <div class="feature__body">
+              <h3>Earn up to three stars</h3>
+              <p>Solve a level with fewer blocks for more stars. Every win ends with a short AI comment on your own program.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Concepts ============ -->
+    <section class="section section--grid" id="concepts" aria-labelledby="concepts-title">
+      <div class="container">
+        <header class="section__head" data-reveal>
+          <p class="eyebrow">What you'll learn</p>
+          <h2 id="concepts-title" class="section__title">10 modules, in course order</h2>
+          <p class="section__lead">UniCode follows the order of CCP-1101, the first programming course at the University of the East, which is taught in Python. 93 levels in all, from your first <code>print</code> to reading files.</p>
+        </header>
+
+        <ol class="modules" data-reveal>
+          <li class="module" style="--c: #f8c93e; --i: 0"><span class="module__token">begin</span><h3 class="module__name">Tutorial</h3><p class="module__sub">How to play.</p><span class="module__count">3 levels</span></li>
+          <li class="module" style="--c: #6bd7c8; --i: 1"><span class="module__token">print()</span><h3 class="module__name">Input and Output</h3><p class="module__sub">Talk with the user.</p><span class="module__count">10 levels</span></li>
+          <li class="module" style="--c: #b49cfb; --i: 2"><span class="module__token">x =</span><h3 class="module__name">Values and Variables</h3><p class="module__sub">Keep what you need.</p><span class="module__count">10 levels</span></li>
+          <li class="module" style="--c: #9ad1ff; --i: 3"><span class="module__token">+ - * /</span><h3 class="module__name">Operators and Expressions</h3><p class="module__sub">Work it out.</p><span class="module__count">10 levels</span></li>
+          <li class="module" style="--c: #81dea3; --i: 4"><span class="module__token">if</span><h3 class="module__name">Selection</h3><p class="module__sub">Choose what to do.</p><span class="module__count">10 levels</span></li>
+          <li class="module" style="--c: #7fa3d6; --i: 5"><span class="module__token">for</span><h3 class="module__name">Loops <small>(Iteration)</small></h3><p class="module__sub">Don't repeat yourself.</p><span class="module__count">10 levels</span></li>
+          <li class="module" style="--c: #ee83a4; --i: 6"><span class="module__token">def</span><h3 class="module__name">Functions</h3><p class="module__sub">Name a set of steps.</p><span class="module__count">10 levels</span></li>
+          <li class="module" style="--c: #faa85c; --i: 7"><span class="module__token">[0]</span><h3 class="module__name">Lists <small>(Arrays)</small></h3><p class="module__sub">Zero to hero.</p><span class="module__count">10 levels</span></li>
+          <li class="module" style="--c: #d4bcff; --i: 8"><span class="module__token">{ : }</span><h3 class="module__name">Dictionaries</h3><p class="module__sub">Find things by name.</p><span class="module__count">10 levels</span></li>
+          <li class="module" style="--c: #7dd3fc; --i: 9"><span class="module__token">.txt</span><h3 class="module__name">Text Files</h3><p class="module__sub">Keep it for later.</p><span class="module__count">10 levels</span></li>
+        </ol>
+
+        <div class="objectives" data-reveal>
+          <h3 class="objectives__title">Learning objectives</h3>
+          <p>After working through the modules, students can:</p>
+          <ul class="checks checks--two">
+            <li>Trace a program block by block and predict what it will do</li>
+            <li>Read what the user types and show results on the terminal</li>
+            <li>Store, update and convert values with variables</li>
+            <li>Work out answers with arithmetic and comparison operators</li>
+            <li>Choose between actions with <code>if</code>, <code>elif</code> and <code>else</code></li>
+            <li>Repeat steps with <code>while</code> and <code>for</code> loops, and stop early with <code>break</code> and <code>continue</code></li>
+            <li>Split a task into functions with parameters and return values</li>
+            <li>Read and change lists by index, length and append</li>
+            <li>Look up, add and update values in a dictionary</li>
+            <li>Read the lines of a text file and write new ones</li>
+            <li>Write one general solution that works for different inputs and rooms</li>
+          </ul>
+        </div>
+
+        <div class="gallery" data-reveal>
+          <h3 class="gallery__title">Inside the modules</h3>
+          <ul class="gallery__list">
+            <li><figure><img src="assets/shots/mod-io.webp" alt="Two print blocks under Begin, and a terminal in the room that shows Hello World." width="900" height="622" loading="lazy"><figcaption><strong>Input and Output</strong> Printing to the terminal</figcaption></figure></li>
+            <li><figure><img src="assets/shots/mod-variables.webp" alt="A program that stores what the user types in a variable called steps, then steps forward that many times." width="900" height="692" loading="lazy"><figcaption><strong>Values and Variables</strong> Count your steps</figcaption></figure></li>
+            <li><figure><img src="assets/shots/mod-selection.webp" alt="An if, elif and else program choosing between paper, can and plastic bins in three rooms." width="900" height="826" loading="lazy"><figcaption><strong>Selection</strong> Three bins</figcaption></figure></li>
+            <li><figure><img src="assets/shots/mod-loops.webp" alt="Nested for loops guiding the robot around a classroom." width="900" height="675" loading="lazy"><figcaption><strong>Loops</strong> Around the room</figcaption></figure></li>
+            <li><figure><img src="assets/shots/mod-functions.webp" alt="A define zigzag block with four steps, called four times from a for loop." width="900" height="406" loading="lazy"><figcaption><strong>Functions</strong> Write it</figcaption></figure></li>
+            <li><figure><img src="assets/shots/mod-lists.webp" alt="A for loop reading a list called route by index to decide how far the robot steps." width="900" height="863" loading="lazy"><figcaption><strong>Lists</strong> Every stop</figcaption></figure></li>
+            <li><figure><img src="assets/shots/mod-dicts.webp" alt="A print block looking up a price in a dictionary called prices, with the answer on each room's terminal." width="900" height="753" loading="lazy"><figcaption><strong>Dictionaries</strong> Look it up</figcaption></figure></li>
+            <li><figure><img src="assets/shots/mod-files.webp" alt="A for each loop printing every line of notes.txt to the terminal." width="900" height="606" loading="lazy"><figcaption><strong>Text Files</strong> Read every line</figcaption></figure></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AI assistant and privacy ============ -->
+    <section class="section section--alt" id="ai-assistant" aria-labelledby="ai-title">
+      <div class="container ai">
+        <div class="ai__text">
+          <header class="section__head section__head--left" data-reveal>
+            <p class="eyebrow">AI assistant</p>
+            <h2 id="ai-title" class="section__title">Stuck? Ask for a hint</h2>
+            <p class="section__lead">The assistant knows the level you're on and what your program just did. It guides you with hints and questions instead of handing over the answer.</p>
+          </header>
+          <ul class="points" data-reveal>
+            <li><strong>It knows your level.</strong> It reads the mission, your current blocks, what happened in your last run and where the robot is.</li>
+            <li><strong>Hints, not answers.</strong> Replies are short, point to one thing in your own run, and end with a question that gets you thinking. It never writes out the whole program.</li>
+            <li><strong>A fair limit.</strong> You can hold up to 10 questions. One comes back every 3 minutes, and solving a level for the first time gives you 3 more.</li>
+            <li><strong>Stays on topic.</strong> Questions that aren't about the level get a friendly nudge back to the puzzle.</li>
+          </ul>
+        </div>
+        <figure class="shot ai__shot" data-reveal>
+          <img src="assets/shots/shot-ai-chat.webp" alt="The AI Assistant tab. The player asks why the robot stops before the flag, and the assistant explains that the inner loop needs to run one more time." width="548" height="1055" loading="lazy">
+          <figcaption>A real question and reply from the game.</figcaption>
+        </figure>
+      </div>
+
+      <div class="container">
+        <div class="privacy" id="privacy" data-reveal>
+          <h3 class="privacy__title">Privacy: what the assistant sees</h3>
+          <ul class="checks">
+            <li>When you send a question, it goes with your current blocks, the result of your last run and pictures of the level, through our server to Google's Gemini model, which writes the reply. Google's Gemini API terms apply to what is sent.</li>
+            <li>Our server doesn't keep your messages or pictures. It only records numbers, like how long a reply took.</li>
+            <li>You don't need an account, a name or an email. Your stars and your question count stay on your own computer or browser.</li>
+            <li>The comment on the Level complete card is written the same way, from your winning program. It never uses your questions.</li>
+            <li>No internet? The assistant says it couldn't connect, and the question isn't used up. Everything else in the game works without it.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ System requirements ============ -->
+    <section class="section" id="requirements" aria-labelledby="req-title">
+      <div class="container">
+        <header class="section__head" data-reveal>
+          <p class="eyebrow">System requirements</p>
+          <h2 id="req-title" class="section__title">What you need to play</h2>
+        </header>
+        <div class="reqs">
+          <article class="req" data-reveal>
+            <h3 class="req__title">Play in your browser</h3>
+            <dl class="req__list">
+              <dt>Computer</dt><dd>A desktop or laptop with a mouse</dd>
+              <dt>Browser</dt><dd>An up-to-date Chrome, Edge or Firefox (it needs WebGL 2)</dd>
+              <dt>Download</dt><dd>About 45 MB the first time you open it</dd>
+              <dt>Internet</dt><dd>Needed to load the game and for the AI assistant</dd>
+              <dt>Mac</dt><dd>Works in the browser, but the game can look small on high-resolution Mac screens</dd>
+            </dl>
+            <a class="btn btn--primary btn--small" data-link="play" href="https://unicode-ue.itch.io/unicode" target="_blank" rel="noopener">Play in browser</a>
+          </article>
+          <article class="req" data-reveal>
+            <h3 class="req__title">Windows download</h3>
+            <dl class="req__list">
+              <dt>System</dt><dd>Windows 10 or 11, 64-bit</dd>
+              <dt>Space</dt><dd>About 40 MB to download and 105 MB once unzipped</dd>
+              <dt>Graphics</dt><dd>Up-to-date graphics drivers</dd>
+              <dt>Internet</dt><dd>Only for the AI assistant. Everything else works offline</dd>
+              <dt>Input</dt><dd>A mouse and keyboard</dd>
+            </dl>
+            <a class="btn btn--outline btn--small" data-link="download" href="https://unicode-ue.itch.io/unicode" target="_blank" rel="noopener">Download for Windows</a>
+          </article>
+        </div>
+        <p class="note" data-reveal>Phones and tablets aren't supported yet. UniCode is made for a mouse and a bigger screen.</p>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--alt" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <header class="section__head" data-reveal>
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title" class="section__title">Frequently asked questions</h2>
+        </header>
+        <div class="qa" data-reveal>
+          <details>
+            <summary>Is UniCode free?</summary>
+            <p>Yes. UniCode is free to play in your browser.</p>
+          </details>
+          <details>
+            <summary>Do I need to know how to code?</summary>
+            <p>No. The Tutorial module starts from zero, and every new block comes with a short guided tutorial.</p>
+          </details>
+          <details>
+            <summary>Is this Python?</summary>
+            <p>Not quite. The blocks follow Python's keywords and rules, and many levels show the matching Python code, but you build programs from blocks instead of typing them. It's a stepping stone to writing Python.</p>
+          </details>
+          <details>
+            <summary>Who is it for?</summary>
+            <p>Anyone who wants to learn or practice programming: students who want to improve their skills, developers who want a quick, playful refresher on the basics, and aspiring programmers who are just starting out.</p>
+          </details>
+          <details>
+            <summary>Do I have to play the levels in order?</summary>
+            <p>Within a module, each level opens after you solve the one before it. The first level of every module is always open, so you can start any topic.</p>
+          </details>
+          <details>
+            <summary>Is my progress saved?</summary>
+            <p>Yes, on the computer or browser you play on. To continue somewhere else, open <strong>Progress</strong> on the main menu, copy your progress code, then type it in under Progress on the other computer.</p>
+          </details>
+          <details>
+            <summary>Will the AI just give me the answer?</summary>
+            <p>No. It gives hints and asks questions about your own run, and it never writes out the whole program. See <a href="#ai-assistant">AI assistant</a>.</p>
+          </details>
+          <details>
+            <summary>Will the AI save my data?</summary>
+            <p>Our server doesn't. It passes your question, your blocks and pictures of the level to Google's Gemini model to write the reply, and only records numbers, like how long the reply took. Google handles what it receives under its Gemini API terms, so keep personal details, like your full name or passwords, out of the chat. See <a href="#privacy">Privacy</a>.</p>
+          </details>
+          <details>
+            <summary>Can I play offline?</summary>
+            <p>The Windows version works offline, except for the AI assistant and the comment on the Level complete card. The browser version needs internet to load.</p>
+          </details>
+          <details>
+            <summary>Can I play on my phone?</summary>
+            <p>Not yet. UniCode is built for a mouse and a bigger screen.</p>
+          </details>
+          <details>
+            <summary>Who made UniCode?</summary>
+            <p>Five Bachelor of Science in Computer Science students at the University of the East, Manila, as their 2026 thesis. See <a href="#research">The research</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Troubleshooting ============ -->
+    <section class="section" id="troubleshooting" aria-labelledby="trouble-title">
+      <div class="container container--narrow">
+        <header class="section__head" data-reveal>
+          <p class="eyebrow">Troubleshooting</p>
+          <h2 id="trouble-title" class="section__title">If something goes wrong</h2>
+        </header>
+        <div class="qa" data-reveal>
+          <details>
+            <summary>The browser version is stuck loading</summary>
+            <p>The first visit downloads about 45 MB, which can take a while on a slow connection. Wait a moment, then refresh. Use an up-to-date Chrome, Edge or Firefox, and turn off extensions that block scripts.</p>
+          </details>
+          <details>
+            <summary>The screen stays black, or the game won't start in the browser</summary>
+            <p>Turn on graphics acceleration. In Chrome, it's under Settings, System. In Edge, it's under Settings, System and performance. Then restart the browser and update your graphics drivers.</p>
+          </details>
+          <details>
+            <summary>Windows says "Windows protected your PC"</summary>
+            <p>UniCode isn't signed with a paid certificate, so Windows warns about it. Click <strong>More info</strong>, then <strong>Run anyway</strong>. Only run copies you downloaded from this page or our itch.io page.</p>
+          </details>
+          <details>
+            <summary>The robot doesn't move when I press play</summary>
+            <p>Only blocks attached under <strong>Begin</strong> run. Check that your first block is snapped under Begin and not sitting loose on the workspace.</p>
+          </details>
+          <details>
+            <summary>The robot says "I can't step forward."</summary>
+            <p>Something is in its way, like a wall or a desk. Turn first, or check the tile ahead before stepping.</p>
+          </details>
+          <details>
+            <summary>The assistant says "Couldn't reach the hint helper."</summary>
+            <p>Check your internet connection. Some school networks block it, so try another network. Your question isn't used up.</p>
+          </details>
+          <details>
+            <summary>The assistant says "Out of questions for now."</summary>
+            <p>One question comes back every 3 minutes, and solving a level for the first time gives you 3 more. The message shows how long until the next one.</p>
+          </details>
+          <details>
+            <summary>My stars are gone</summary>
+            <p>Progress is saved separately on each computer and browser. Clearing your browser data or playing in a private window starts fresh. If you copied your progress code, type it in under <strong>Progress</strong> to get your stars back.</p>
+          </details>
+          <details>
+            <summary>The game looks small on my Mac</summary>
+            <p>That's a known issue with high-resolution Mac screens in the browser version. The game still plays fine. A Windows computer gives the best results.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ The research ============ -->
+    <section class="section section--alt" id="research" aria-labelledby="research-title">
+      <div class="container container--narrow research" data-reveal>
+        <p class="eyebrow">The research</p>
+        <h2 id="research-title" class="research__title">UniCode: Block-based Software Puzzles to Teach Core Programming Concepts and Abstractions</h2>
+        <p class="research__body">A research project presented to the Faculty of the College of Computer Studies and Systems, University of the East, Manila, in partial fulfillment of the requirements for the degree of Bachelor of Science in Computer Science.</p>
+        <p class="research__year">2026</p>
+        <h3 class="research__team-title">The team</h3>
+        <ul class="team">
+          <li>Barcelon, John Hendrix</li>
+          <li>Daniel, Alex Jr.</li>
+          <li>Cabeza, Edgar Jr.</li>
+          <li>Ebrahim, Musaiden</li>
+          <li>Salivio, Johnas Earl</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Final call to action ============ -->
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="cta__art" aria-hidden="true"></div>
+      <span class="sprite sprite--hover cta__robot cta__robot--left" aria-hidden="true"></span>
+      <span class="sprite sprite--hover cta__robot cta__robot--right" aria-hidden="true"></span>
+      <div class="container cta__content" data-reveal>
+        <h2 id="cta-title" class="section__title">Ready to code?</h2>
+        <p class="section__lead">Your robot is waiting on campus.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--large" data-link="play" href="https://unicode-ue.itch.io/unicode" target="_blank" rel="noopener">
+            <svg class="btn__icon" viewBox="0 0 6 10" aria-hidden="true" shape-rendering="crispEdges"><path d="M0 0h1v10H0zM1 1h1v8H1zM2 2h1v6H2zM3 3h1v4H3zM4 4h1v2H4z"/></svg>
+            Play in browser
+          </a>
+          <a class="btn btn--outline btn--large" data-link="download" href="https://unicode-ue.itch.io/unicode" target="_blank" rel="noopener">Download for Windows</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="assets/img/logo.png" alt="UniCode" width="217" height="41">
+        <p>Block-based software puzzles that teach core programming concepts and abstractions. A University of the East thesis project.</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <h2 class="footer__heading">Play</h2>
+        <a data-link="play" href="https://unicode-ue.itch.io/unicode" target="_blank" rel="noopener">Play on itch.io</a>
+        <a data-link="download" href="https://unicode-ue.itch.io/unicode" target="_blank" rel="noopener">Download for Windows</a>
+        <a href="#how-to-play">How to play</a>
+      </nav>
+      <nav class="footer__links" aria-label="Help">
+        <h2 class="footer__heading">Help</h2>
+        <a href="#faq">FAQ</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#requirements">System requirements</a>
+        <a href="#privacy">Privacy</a>
+      </nav>
+      <div class="footer__credits">
+        <h2 class="footer__heading">Credits</h2>
+        <p>Made with the Godot Engine. AI replies by Google Gemini.</p>
+        <p>Fonts: Kenney Pixel and Kenney Mini by Kenney (CC0), and Atkinson Hyperlegible by the Braille Institute (SIL Open Font License 1.1).</p>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; 2026 UniCode team. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
