@@ -580,7 +580,17 @@ code {
 
 /* ---------- See it in action ---------- */
 
-.player { margin: 0 auto; max-width: 1040px; }
+/* The section fits on one screen: on shorter screens the clip shrinks so the
+   title, clip and step buttons show together, and jumps to the section (the
+   "See it in action" link and the first-screen snap in main.js) land on its
+   title instead of the space above it. 324px is the menu bar, the title block
+   and the step buttons; 1.82 is the clip's width to height. */
+#gameplay { scroll-margin-top: calc(12px - clamp(72px, 9vw, 128px)); }
+.player { margin: 0 auto; max-width: clamp(480px, calc((100vh - 324px) * 1.82), 1040px); }
+@media (max-height: 900px) and (min-width: 701px) {
+  #gameplay .section__head { margin-bottom: 28px; }
+  #gameplay .steps-strip { margin-top: 18px; }
+}
 .player__frame {
   position: relative;
   overflow: hidden;
@@ -701,7 +711,18 @@ code {
 }
 .how__step h3 { margin: 2px 0 4px; font-size: 19px; }
 .how__step p { margin: 0; color: var(--soft); }
-.how__shot { position: sticky; top: calc(var(--nav-h) + 24px); }
+/* The picture beside the steps: four pictures stacked in one spot, the one
+   for the current step shown (main.js picks it as you scroll). */
+.how__show { position: sticky; top: calc(var(--nav-h) + 24px); }
+.how__frames { display: grid; }
+.how__frames img { grid-area: 1 / 1; opacity: 0; transition: opacity 0.35s ease; }
+.how__frames img.is-active { opacity: 1; }
+.how__inline { display: none; }
+@media (min-width: 1001px) {
+  .how__step { transition: border-color 0.25s ease, background-color 0.25s ease; }
+  .how.is-live .how__step { cursor: pointer; }
+  .how.is-live .how__step.is-active { border-color: var(--sky); background: #22314f; }
+}
 
 /* ---------- Features ---------- */
 
@@ -1090,7 +1111,16 @@ code {
   .gallery__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .how { grid-template-columns: minmax(0, 1fr); }
-  .how__shot { position: static; margin-top: 28px; }
+  .how__show { display: none; }
+  .how__inline {
+    display: block;
+    grid-column: 1 / -1;
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--frame);
+    border-radius: 4px;
+    background: #0b1120;
+  }
 }
 
 @media (max-width: 880px) {
