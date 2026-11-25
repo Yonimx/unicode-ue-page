@@ -8,5 +8,5 @@
  */
 window.UNICODE_LINKS = {
   play: "https://unicode-ue.itch.io/unicode",
-  download: "https://unicode-ue.itch.io/unicode"
+  download: "https://github.com/alex-daniel-ue/unicode/releases/latest/download/UniCode-Windows.zip"
 };

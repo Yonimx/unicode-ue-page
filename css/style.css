@@ -817,7 +817,6 @@ code {
 .objectives { background: var(--panel); border: 2px solid var(--line); }
 .objectives__title,
 .privacy__title,
-.gallery__title,
 .req__title {
   margin: 0 0 8px;
   font-family: var(--font-pixel);
@@ -848,34 +847,6 @@ code {
   box-shadow: 0 3px 0 var(--green-edge);
 }
 .checks--two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 36px; }
-
-.gallery { margin-top: clamp(48px, 6vw, 72px); }
-.gallery__list {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin: 18px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.gallery figure {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-  background: var(--panel);
-  border: 2px solid var(--line);
-  border-radius: 6px;
-}
-.gallery img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: contain;
-  background: #0b1120;
-}
-.gallery figcaption { padding: 10px 12px 12px; font-size: 14px; color: var(--muted); }
-.gallery figcaption strong { display: block; font-size: 15px; color: #fff; }
 
 /* ---------- AI assistant ---------- */
 
@@ -1108,7 +1079,6 @@ code {
 
 @media (max-width: 1000px) {
   .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .gallery__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .how { grid-template-columns: minmax(0, 1fr); }
   .how__show { display: none; }
@@ -1178,10 +1148,6 @@ code {
 /* On phones the words fill the first screen, so only the gliding robot stays. */
 @media (max-width: 560px) {
   .robot-spot--a, .robot-spot--b { display: none; }
-}
-
-@media (max-width: 420px) {
-  .gallery__list { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ---------- Visitors who ask for less motion get a still page ---------- */
